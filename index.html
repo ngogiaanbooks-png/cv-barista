@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive CV - Barista & F&B Service Professional" />
+  <title data-i18n="page.title">CV Barista · F&B Service</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       CURSOR (custom)
+       ═══════════════════════════════════════════════ -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════ -->
+  <header class="nav" id="navbar">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" data-i18n="nav.logo.aria" aria-label="Trang chủ">NG</a>
+      <nav class="nav__links" id="navLinks" role="navigation" aria-label="Main navigation">
+        <a href="#hero" class="nav__link" data-i18n="nav.intro">Giới thiệu</a>
+        <a href="#experience" class="nav__link" data-i18n="nav.experience">Kinh nghiệm</a>
+        <a href="#gallery" class="nav__link" data-i18n="nav.gallery">Gallery</a>
+        <a href="#schedule" class="nav__link" data-i18n="nav.schedule">Lịch làm</a>
+        <a href="#contact" class="nav__link" data-i18n="nav.contact">Liên hệ</a>
+      </nav>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language" title="EN">EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Chế độ tối">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer overlay -->
+  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+    <button class="drawer__close" id="drawerClose" aria-label="Close menu">&times;</button>
+    <div class="drawer-theme-toggle">
+      <span class="drawer-theme-toggle__label" data-i18n="drawer.theme">Chế độ tối</span>
+      <button class="theme-toggle" id="drawerThemeToggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+    </div>
+    <div class="drawer-lang-toggle">
+      <span class="drawer-lang-toggle__label" data-i18n="drawer.lang">Ngôn ngữ</span>
+      <button class="lang-toggle" id="drawerLangToggle" aria-label="Switch language">EN</button>
+    </div>
+    <nav class="drawer__links">
+      <a href="#hero" class="drawer__link" data-i18n="nav.intro">Giới thiệu</a>
+      <a href="#experience" class="drawer__link" data-i18n="nav.experience">Kinh nghiệm</a>
+      <a href="#gallery" class="drawer__link" data-i18n="nav.gallery">Gallery</a>
+      <a href="#schedule" class="drawer__link" data-i18n="nav.schedule">Lịch làm</a>
+      <a href="#contact" class="drawer__link" data-i18n="nav.contact">Liên hệ</a>
+    </nav>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 1 — HERO
+       ═══════════════════════════════════════════════ -->
+  <section class="hero section" id="hero">
+    <!-- Grain overlay -->
+    <div class="hero__grain" aria-hidden="true"></div>
+    <!-- Steam particles -->
+    <div class="steam-particles" aria-hidden="true">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+
+    <div class="hero__content">
+      <!-- Tên — animated letter reveal -->
+      <h1 class="hero__name" id="heroName">
+        <span class="letter" style="--i:0">N</span>
+        <span class="letter" style="--i:1">g</span>
+        <span class="letter" style="--i:2">ô</span>
+        <span class="letter-space">&nbsp;</span>
+        <span class="letter" style="--i:3">G</span>
+        <span class="letter" style="--i:4">i</span>
+        <span class="letter" style="--i:5">a</span>
+      </h1>
+      <p class="hero__subtitle reveal" data-i18n="hero.subtitle">Barista · F&B Service</p>
+      <p class="hero__location reveal" data-i18n="hero.location">
+        <svg class="icon-pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Đà Nẵng, Việt Nam
+      </p>
+
+      <!-- Personal introduction -->
+      <div class="hero__intro reveal">
+        <div class="hero__intro-card">
+          <p data-i18n="hero.intro.p1">
+            Tôi sinh năm 2007 và đã làm việc trong ngành F&B được 5 tháng. Hiện tại tôi đang tìm kiếm cơ hội mới để tích lũy thêm kinh nghiệm, không chỉ với vai trò barista mà còn tìm hiểu về cách quản lý và vận hành một doanh nghiệp.
+          </p>
+          <p data-i18n="hero.intro.p2">
+            Đồng thời, tôi đang học ngành Thiết kế Vi mạch tại Đại học FPT. Tôi có kỹ năng cơ bản về công nghệ và tiếng Anh, và mặc dù chưa có chứng chỉ ngôn ngữ, tôi có thể hiểu một chút tiếng Trung và tiếng Nhật.
+          </p>
+          <p class="hero__intro-closing" data-i18n="hero.intro.p3">
+            Tôi luôn sẵn sàng học hỏi, thích nghi nhanh và không ngừng cải thiện kỹ năng của mình thông qua những thử thách và trải nghiệm mới.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-indicator__mouse">
+        <span class="scroll-indicator__wheel"></span>
+      </span>
+      <span class="scroll-indicator__text" data-i18n="hero.scroll">Cuộn xuống</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 2 — CONTACT
+       ═══════════════════════════════════════════════ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <h2 class="section__title reveal" data-i18n="contact.title">Liên hệ</h2>
+      <div class="contact__cards">
+        <!-- Phone -->
+        <div class="contact__card reveal" data-copy="0775101276">
+          <div class="contact__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <span class="contact__label" data-i18n="contact.phone">Điện thoại</span>
+          <span class="contact__value">0775101276</span>
+          <span class="contact__hint" data-i18n="contact.hint">Nhấn để sao chép</span>
+        </div>
+
+        <!-- Email -->
+        <div class="contact__card reveal" data-copy="ngogiaanbooks@gmail.com">
+          <div class="contact__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <span class="contact__label" data-i18n="contact.email">Email</span>
+          <span class="contact__value">ngogiaanbooks@gmail.com</span>
+          <span class="contact__hint" data-i18n="contact.hint">Nhấn để sao chép</span>
+        </div>
+
+        <!-- Address -->
+        <div class="contact__card reveal" data-copy="Đà Nẵng, Việt Nam">
+          <div class="contact__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <span class="contact__label" data-i18n="contact.address">Địa chỉ</span>
+          <span class="contact__value">Đà Nẵng, Việt Nam</span>
+          <span class="contact__hint" data-i18n="contact.hint">Nhấn để sao chép</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 3 — EXPERIENCE
+       ═══════════════════════════════════════════════ -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <h2 class="section__title reveal" data-i18n="experience.title">Kinh nghiệm làm việc</h2>
+
+      <div class="timeline">
+        <!-- Timeline line (drawn by JS) -->
+        <div class="timeline__line" id="timelineLine" aria-hidden="true"></div>
+
+        <!-- Experience card 1 -->
+        <div class="timeline__item reveal">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__card">
+            <div class="timeline__badge" data-i18n="experience.badge">3 tháng kinh nghiệm</div>
+            <div class="timeline__header">
+              <h3 class="timeline__title">The Taste Of Sea</h3>
+              <span class="timeline__role">Barista</span>
+              <span class="timeline__period">08/2025 – 11/2025</span>
+            </div>
+            <ul class="timeline__details">
+              <li data-i18n="experience.bullet1">Pha chế các loại đồ uống espresso-based theo tiêu chuẩn</li>
+              <li data-i18n="experience.bullet2">Phục vụ khách hàng, xử lý order nhanh chóng</li>
+              <li data-i18n="experience.bullet3">Vệ sinh và bảo dưỡng máy pha cà phê</li>
+              <li data-i18n="experience.bullet4">Giữ vững tiêu chuẩn vệ sinh an toàn thực phẩm</li>
+            </ul>
+            <!-- Decorative SVG cup -->
+            <svg class="timeline__cup" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <rect x="8" y="12" width="20" height="16" rx="2" fill="#C8922A" opacity="0.3"/>
+              <path d="M28 16h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4" stroke="#C8922A" stroke-width="1.5" opacity="0.5"/>
+              <ellipse cx="18" cy="12" rx="10" ry="2" fill="#C8922A" opacity="0.2"/>
+              <path d="M14 22 Q 18 25 22 22" stroke="#C8922A" stroke-width="1" fill="none" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Experience card 2 (placeholder for future) -->
+        <div class="timeline__item reveal">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <div class="timeline__card timeline__card--future">
+            <div class="timeline__header">
+              <h3 class="timeline__title" data-i18n="experience.future.title">Thêm trải nghiệm mới</h3>
+              <span class="timeline__period" data-i18n="experience.future.period">Trong tương lai</span>
+            </div>
+            <p class="timeline__future-text" data-i18n="experience.future.text">Cơ hội luôn rộng mở ✨</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 4 — LATTE ART GALLERY
+       ═══════════════════════════════════════════════ -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <h2 class="section__title reveal" data-i18n="gallery.title">Latte Art Gallery</h2>
+      <p class="section__subtitle reveal" data-i18n="gallery.subtitle">Những tác phẩm nghệ thuật trên ly cà phê</p>
+
+      <div class="gallery__grid" id="galleryGrid">
+        <!-- Gallery items will be rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Đóng">&times;</button>
+      <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Ảnh trước" data-i18n="lightbox.prev">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Ảnh tiếp theo" data-i18n="lightbox.next">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="lightbox__content">
+        <img class="lightbox__image" id="lightboxImage" src="" alt="Latte Art" />
+        <div class="lightbox__caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 5 — AVAILABILITY SCHEDULE
+       ═══════════════════════════════════════════════ -->
+  <section class="schedule section" id="schedule">
+    <div class="container">
+      <h2 class="section__title reveal" data-i18n="schedule.title">Lịch làm việc</h2>
+
+      <div class="schedule__table-wrapper reveal">
+        <table class="schedule__table" id="scheduleTable">
+          <thead>
+            <tr>
+              <th class="schedule__corner"></th>
+              <th data-day="T2">T2</th>
+              <th data-day="T3">T3</th>
+              <th data-day="T4">T4</th>
+              <th data-day="T5">T5</th>
+              <th data-day="T6">T6</th>
+              <th data-day="T7">T7</th>
+              <th data-day="CN">CN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="schedule__shift" data-shift="Sáng(7h-12h)" data-i18n="schedule.morning">Sáng(7h-12h)</td>
+              <td data-shift="Sáng" data-day="T2"></td>
+              <td data-shift="Sáng" data-day="T3"></td>
+              <td data-shift="Sáng" data-day="T4"></td>
+              <td data-shift="Sáng" data-day="T5"></td>
+              <td data-shift="Sáng" data-day="T6"></td>
+              <td data-shift="Sáng" data-day="T7"></td>
+              <td data-shift="Sáng" data-day="CN"></td>
+            </tr>
+            <tr>
+              <td class="schedule__shift" data-shift="Chiều(12h-17h)" data-i18n="schedule.afternoon">Chiều(12h-17h)</td>
+              <td data-shift="Chiều" data-day="T2"></td>
+              <td data-shift="Chiều" data-day="T3"></td>
+              <td data-shift="Chiều" data-day="T4"></td>
+              <td data-shift="Chiều" data-day="T5"></td>
+              <td data-shift="Chiều" data-day="T6"></td>
+              <td data-shift="Chiều" data-day="T7"></td>
+              <td data-shift="Chiều" data-day="CN"></td>
+            </tr>
+            <tr>
+              <td class="schedule__shift" data-shift="Tối(17h-22h)" data-i18n="schedule.evening">Tối(17h-22h)</td>
+              <td data-shift="Tối" data-day="T2"></td>
+              <td data-shift="Tối" data-day="T3"></td>
+              <td data-shift="Tối" data-day="T4"></td>
+              <td data-shift="Tối" data-day="T5"></td>
+              <td data-shift="Tối" data-day="T6"></td>
+              <td data-shift="Tối" data-day="T7"></td>
+              <td data-shift="Tối" data-day="CN"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="schedule__actions reveal">
+        <button class="btn btn--primary" id="scheduleCopy" data-i18n="schedule.copy">Sao chép lịch</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 6 — FOOTER
+       ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text" data-i18n="footer.text">Ngô Gia © 2025</p>
+      <p class="footer__made" data-i18n="footer.made">Made with <span class="footer__heart">☕</span></p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       TOAST NOTIFICATION
+       ═══════════════════════════════════════════════ -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span class="toast__icon">✓</span>
+    <span class="toast__message" id="toastMessage"></span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       JAVASCRIPT
+       ═══════════════════════════════════════════════ -->
+  <script src="main.js"></script>
+</body>
+</html>
