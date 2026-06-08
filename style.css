@@ -458,58 +458,7 @@ ul {
   font-size: 1.1rem;
 }
 
-/* ─── Language Toggle ─── */
-.lang-toggle {
-  background: none;
-  border: 1.5px solid var(--border-subtle);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all var(--transition);
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-}
 
-.lang-toggle:hover {
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
-.nav__inner .lang-toggle {
-  margin-right: 8px;
-}
-
-@media (max-width: 768px) {
-  .nav__inner .lang-toggle {
-    display: none;
-  }
-}
-
-/* ─── Drawer language toggle ─── */
-.drawer-lang-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 8px;
-}
-
-.drawer-lang-toggle__label {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--muted);
-}
-
-.drawer-lang-toggle .lang-toggle {
-  font-size: 0.85rem;
-  padding: 6px 14px;
-}
 
 /* ════════════════════════════════════════════════════════════════
    HERO SECTION

@@ -136,191 +136,6 @@ function showToast(message) {
 }
 
 // ─── ======================================================
-//  I18N — Translations & Language Toggle
-// ─── ======================================================
-const LANG_STORAGE_KEY = 'barista-cv-lang';
-let currentLang = 'vi';
-
-const translations = {
-  vi: {
-    'page.title': 'CV Barista · F&B Service',
-    'nav.logo.aria': 'Trang chủ',
-    'nav.intro': 'Giới thiệu',
-    'nav.experience': 'Kinh nghiệm',
-    'nav.gallery': 'Gallery',
-    'nav.schedule': 'Lịch làm',
-    'nav.contact': 'Liên hệ',
-    'hero.subtitle': 'Barista · F&B Service',
-    'hero.location': 'Đà Nẵng, Việt Nam',
-    'hero.scroll': 'Cuộn xuống',
-    'hero.intro.p1': 'Tôi sinh năm 2007 và đã làm việc trong ngành F&B được 5 tháng. Hiện tại tôi đang tìm kiếm cơ hội mới để tích lũy thêm kinh nghiệm, không chỉ với vai trò barista mà còn tìm hiểu về cách quản lý và vận hành một doanh nghiệp.',
-    'hero.intro.p2': 'Đồng thời, tôi đang học ngành Thiết kế Vi mạch tại Đại học FPT. Tôi có kỹ năng cơ bản về công nghệ và tiếng Anh, và mặc dù chưa có chứng chỉ ngôn ngữ, tôi có thể hiểu một chút tiếng Trung và tiếng Nhật.',
-    'hero.intro.p3': 'Tôi luôn sẵn sàng học hỏi, thích nghi nhanh và không ngừng cải thiện kỹ năng của mình thông qua những thử thách và trải nghiệm mới.',
-    'contact.title': 'Liên hệ',
-    'contact.phone': 'Điện thoại',
-    'contact.email': 'Email',
-    'contact.address': 'Địa chỉ',
-    'contact.hint': 'Nhấn để sao chép',
-    'experience.title': 'Kinh nghiệm làm việc',
-    'experience.badge': '3 tháng kinh nghiệm',
-    'experience.bullet1': 'Pha chế các loại đồ uống espresso-based theo tiêu chuẩn',
-    'experience.bullet2': 'Phục vụ khách hàng, xử lý order nhanh chóng',
-    'experience.bullet3': 'Vệ sinh và bảo dưỡng máy pha cà phê',
-    'experience.bullet4': 'Giữ vững tiêu chuẩn vệ sinh an toàn thực phẩm',
-    'experience.future.title': 'Thêm trải nghiệm mới',
-    'experience.future.period': 'Trong tương lai',
-    'experience.future.text': 'Cơ hội luôn rộng mở ✨',
-    'gallery.title': 'Latte Art Gallery',
-    'gallery.subtitle': 'Những tác phẩm nghệ thuật trên ly cà phê',
-    'lightbox.close': 'Đóng',
-    'lightbox.prev': 'Ảnh trước',
-    'lightbox.next': 'Ảnh tiếp theo',
-    'schedule.title': 'Lịch làm việc',
-    'schedule.subtitle': 'Lịch cố định — không thể thay đổi',
-    'schedule.morning': 'Sáng(7h-12h)',
-    'schedule.afternoon': 'Chiều(12h-17h)',
-    'schedule.evening': 'Tối(17h-22h)',
-    
-    'schedule.copy': 'Sao chép lịch',
-    'footer.text': 'Ngô Gia © 2025',
-    'footer.made': 'Made with ',
-    'drawer.theme': 'Chế độ tối',
-    'drawer.lang': 'Ngôn ngữ',
-    'toast.copied': 'Đã sao chép!',
-    'toast.schedule_copied': 'Đã sao chép lịch!',
-    'schedule.header': 'Lịch làm việc',
-  },
-  en: {
-    'page.title': 'CV Barista · F&B Service',
-    'nav.logo.aria': 'Home',
-    'nav.intro': 'Introduction',
-    'nav.experience': 'Experience',
-    'nav.gallery': 'Gallery',
-    'nav.schedule': 'Schedule',
-    'nav.contact': 'Contact',
-    'hero.subtitle': 'Barista · F&B Service',
-    'hero.location': 'Đà Nẵng, Vietnam',
-    'hero.scroll': 'Scroll down',
-    'hero.intro.p1': 'I was born in 2007 and have been working in the F&B industry for the past five months. I am currently seeking new opportunities to gain more experience, not only as a barista but also in understanding how to manage and operate a business.',
-    'hero.intro.p2': 'At the same time, I am studying IC Design at FPT University. I have basic skills in technology and English, and although I do not hold any language certifications, I can understand a little Chinese and Japanese.',
-    'hero.intro.p3': 'I am eager to learn, adapt quickly, and continuously improve my skills through new challenges and experiences.',
-    'contact.title': 'Contact',
-    'contact.phone': 'Phone',
-    'contact.email': 'Email',
-    'contact.address': 'Address',
-    'contact.hint': 'Click to copy',
-    'experience.title': 'Work Experience',
-    'experience.badge': '3 months experience',
-    'experience.bullet1': 'Prepared espresso-based beverages to standard recipes',
-    'experience.bullet2': 'Served customers and processed orders efficiently',
-    'experience.bullet3': 'Cleaned and maintained coffee brewing equipment',
-    'experience.bullet4': 'Maintained food safety and hygiene standards',
-    'experience.future.title': 'Add new experience',
-    'experience.future.period': 'Coming soon',
-    'experience.future.text': 'Opportunities are always open ✨',
-    'gallery.title': 'Latte Art Gallery',
-    'gallery.subtitle': 'Coffee art masterpieces',
-    'lightbox.close': 'Close',
-    'lightbox.prev': 'Previous image',
-    'lightbox.next': 'Next image',
-    'schedule.title': 'Availability Schedule',
-    'schedule.subtitle': 'Fixed schedule — read-only',
-    'schedule.morning': 'Morning(7am-12pm)',
-    'schedule.afternoon': 'Afternoon(12pm-5pm)',
-    'schedule.evening': 'Evening(5pm-10pm)',
-    
-    'schedule.copy': 'Copy schedule',
-    'footer.text': 'Ngô Gia © 2025',
-    'footer.made': 'Made with ',
-    'drawer.theme': 'Dark mode',
-    'drawer.lang': 'Language',
-    'toast.copied': 'Copied!',
-    'toast.schedule_copied': 'Schedule copied!',
-    'schedule.header': 'Work Schedule',
-  },
-};
-
-function t(key) {
-  return (translations[currentLang] && translations[currentLang][key]) || key;
-}
-
-function initLanguage() {
-  const html = document.documentElement;
-  const toggles = [
-    $('#langToggle'),
-    $('#drawerLangToggle'),
-  ].filter(Boolean);
-
-  // Determine initial language
-  const saved = localStorage.getItem(LANG_STORAGE_KEY);
-  currentLang = (saved === 'vi' || saved === 'en') ? saved : 'vi';
-
-  function applyLanguage(lang) {
-    currentLang = lang;
-    html.setAttribute('lang', lang);
-
-    // Update all elements with data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const text = t(key);
-      const hasChildElements = [...el.children].length > 0;
-
-      // Always update aria-label if present
-      if (el.hasAttribute('aria-label')) {
-        el.setAttribute('aria-label', text);
-      }
-
-      // For <title> element
-      if (el.tagName === 'TITLE') {
-        el.textContent = text;
-      }
-      // For leaf elements (no child elements) — replace entire text
-      else if (!hasChildElements) {
-        el.textContent = text;
-      }
-      // For elements with child elements, update only text nodes (not child elements)
-      else {
-        el.childNodes.forEach(node => {
-          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-            node.textContent = text;
-          }
-        });
-      }
-    });
-
-    // Update toggle buttons
-    const label = lang === 'vi' ? 'EN' : 'VI';
-    toggles.forEach(btn => {
-      btn.textContent = label;
-      btn.setAttribute('title', label === 'EN' ? 'English' : 'Tiếng Việt');
-    });
-
-    // Update lightbox aria-labels (special case — no data-i18n)
-    const lightboxClose = $('#lightboxClose');
-    const lightboxPrev = $('#lightboxPrev');
-    const lightboxNext = $('#lightboxNext');
-    if (lightboxClose) lightboxClose.setAttribute('aria-label', t('lightbox.close'));
-    if (lightboxPrev) lightboxPrev.setAttribute('aria-label', t('lightbox.prev'));
-    if (lightboxNext) lightboxNext.setAttribute('aria-label', t('lightbox.next'));
-
-    try {
-      localStorage.setItem(LANG_STORAGE_KEY, lang);
-    } catch { /* ignore */ }
-  }
-
-  function toggleLanguage() {
-    applyLanguage(currentLang === 'vi' ? 'en' : 'vi');
-  }
-
-  toggles.forEach(btn => {
-    btn.addEventListener('click', toggleLanguage);
-  });
-
-  // Apply initial language
-  applyLanguage(currentLang);
-}
-
-// ─── ======================================================
 //  5. CONTACT — Copy to Clipboard + Toast
 // ─── ======================================================
 function initContactCopy() {
@@ -332,7 +147,7 @@ function initContactCopy() {
       if (!text) return;
       try {
         await navigator.clipboard.writeText(text);
-        showToast(t('toast.copied'));
+        showToast('Copied!');
       } catch {
         // Fallback
         const textarea = document.createElement('textarea');
@@ -343,7 +158,7 @@ function initContactCopy() {
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        showToast(t('toast.copied'));
+        showToast('Copied!');
       }
 
       // Visual feedback
@@ -550,7 +365,7 @@ function initSchedule() {
   function copySchedule() {
     const days = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'];
     const shifts = ['Sáng', 'Chiều', 'Tối'];
-    let text = t('schedule.header') + ':\n\n';
+    let text = 'Work Schedule:\n\n';
     text += '         ' + days.join('   ') + '\n';
     shifts.forEach(shift => {
       text += shift.padEnd(8);
@@ -562,7 +377,7 @@ function initSchedule() {
     });
 
     navigator.clipboard.writeText(text).then(() => {
-      showToast(t('toast.schedule_copied'));
+      showToast('Schedule copied!');
     }).catch(() => {
       // Fallback
       const textarea = document.createElement('textarea');
@@ -573,7 +388,7 @@ function initSchedule() {
       textarea.select();
       document.execCommand('copy');
       document.body.removeChild(textarea);
-      showToast(t('toast.schedule_copied'));
+      showToast('Schedule copied!');
     });
   }
 
@@ -657,7 +472,6 @@ function initSmoothScroll() {
 //  11. INIT ALL
 // ─── ======================================================
 document.addEventListener('DOMContentLoaded', () => {
-  initLanguage();
   initTheme();
   initCursor();
   initScrollReveal();
