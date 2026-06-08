@@ -30,7 +30,7 @@
        ═══════════════════════════════════════════════ -->
   <header class="nav" id="navbar">
     <div class="nav__inner">
-      <a href="#hero" class="nav__logo" aria-label="Home">NG</a>
+      <a href="#hero" class="nav__logo" aria-label="Home">NT</a>
       <nav class="nav__links" id="navLinks" role="navigation" aria-label="Main navigation">
         <a href="#hero" class="nav__link">Introduction</a>
         <a href="#experience" class="nav__link">Experience</a>
@@ -38,9 +38,6 @@
         <a href="#schedule" class="nav__link">Schedule</a>
         <a href="#contact" class="nav__link">Contact</a>
       </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <span class="theme-toggle__icon">🌙</span>
-      </button>
       <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span class="hamburger__line"></span>
         <span class="hamburger__line"></span>
@@ -53,12 +50,6 @@
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
   <aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
     <button class="drawer__close" id="drawerClose" aria-label="Close menu">&times;</button>
-    <div class="drawer-theme-toggle">
-      <span class="drawer-theme-toggle__label">Dark mode</span>
-      <button class="theme-toggle" id="drawerThemeToggle" aria-label="Toggle dark mode">
-        <span class="theme-toggle__icon">🌙</span>
-      </button>
-    </div>
     <nav class="drawer__links">
       <a href="#hero" class="drawer__link">Introduction</a>
       <a href="#experience" class="drawer__link">Experience</a>
@@ -87,37 +78,29 @@
     </div>
 
     <div class="hero__content">
-      <!-- Tên — animated letter reveal -->
+      <!-- Name — animated letter reveal -->
       <h1 class="hero__name" id="heroName">
         <span class="letter" style="--i:0">N</span>
         <span class="letter" style="--i:1">g</span>
-        <span class="letter" style="--i:2">ô</span>
+        <span class="letter" style="--i:2">u</span>
+        <span class="letter" style="--i:3">y</span>
+        <span class="letter" style="--i:4">ễ</span>
+        <span class="letter" style="--i:5">n</span>
         <span class="letter-space">&nbsp;</span>
-        <span class="letter" style="--i:3">G</span>
-        <span class="letter" style="--i:4">i</span>
-        <span class="letter" style="--i:5">a</span>
+        <span class="letter" style="--i:6">V</span>
+        <span class="letter" style="--i:7">ă</span>
+        <span class="letter" style="--i:8">n</span>
+        <span class="letter-space">&nbsp;</span>
+        <span class="letter" style="--i:9">A</span>
       </h1>
       <p class="hero__subtitle reveal">Barista · F&B Service</p>
       <p class="hero__location reveal">
         <svg class="icon-pin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
           <circle cx="12" cy="10" r="3"/>
-        </svg>Đà Nẵng, Vietnam</p>
-
-      <!-- Personal introduction -->
-      <div class="hero__intro reveal">
-        <div class="hero__intro-card">
-          <p>
-            I was born in 2007 and have been working in the F&B industry for the past five months. I am currently seeking new opportunities to gain more experience, not only as a barista but also in understanding how to manage and operate a business.
-          </p>
-          <p>
-            At the same time, I am studying IC Design at FPT University. I have basic skills in technology and English, and although I do not hold any language certifications, I can understand a little Chinese and Japanese.
-          </p>
-          <p class="hero__intro-closing">
-            I am eager to learn, adapt quickly, and continuously improve my skills through new challenges and experiences.
-          </p>
-        </div>
-      </div>
+        </svg>
+        Hội An, Vietnam
+      </p>
     </div>
 
     <!-- Scroll indicator -->
@@ -162,7 +145,7 @@
         </div>
 
         <!-- Address -->
-        <div class="contact__card reveal" data-copy="Đà Nẵng, Việt Nam">
+        <div class="contact__card reveal" data-copy="Calm hous 4, Cẩm Nam, Hội An, Đà Nẵng">
           <div class="contact__icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -170,7 +153,7 @@
             </svg>
           </div>
           <span class="contact__label">Address</span>
-          <span class="contact__value">Đà Nẵng, Việt Nam</span>
+          <span class="contact__value">Calm hous 4, Cẩm Nam, Hội An, Đà Nẵng</span>
           <span class="contact__hint">Click to copy</span>
         </div>
       </div>
@@ -192,16 +175,15 @@
         <div class="timeline__item reveal">
           <div class="timeline__dot" aria-hidden="true"></div>
           <div class="timeline__card">
-            <div class="timeline__badge">3 months experience</div>
+            <div class="timeline__badge">5 months experience as barista and server</div>
             <div class="timeline__header">
               <h3 class="timeline__title">The Taste Of Sea</h3>
-              <span class="timeline__role">Barista</span>
-              <span class="timeline__period">08/2025 – 11/2025</span>
+              <span class="timeline__role">Barista & Server</span>
+              <span class="timeline__period">06/2025 – 11/2025</span>
             </div>
             <ul class="timeline__details">
               <li>Prepared espresso-based beverages to standard recipes</li>
               <li>Served customers and processed orders efficiently</li>
-              <li>Cleaned and maintained coffee brewing equipment</li>
               <li>Maintained food safety and hygiene standards</li>
             </ul>
             <!-- Decorative SVG cup -->
@@ -281,7 +263,7 @@
           </thead>
           <tbody>
             <tr>
-              <td class="schedule__shift" data-shift="Morning(7am-12pm)">Morning(7am-12pm)</td>
+              <td class="schedule__shift">Morning</td>
               <td data-shift="Sáng" data-day="T2"></td>
               <td data-shift="Sáng" data-day="T3"></td>
               <td data-shift="Sáng" data-day="T4"></td>
@@ -291,7 +273,7 @@
               <td data-shift="Sáng" data-day="CN"></td>
             </tr>
             <tr>
-              <td class="schedule__shift" data-shift="Afternoon(12pm-5pm)">Afternoon(12pm-5pm)</td>
+              <td class="schedule__shift">Afternoon</td>
               <td data-shift="Chiều" data-day="T2"></td>
               <td data-shift="Chiều" data-day="T3"></td>
               <td data-shift="Chiều" data-day="T4"></td>
@@ -301,7 +283,7 @@
               <td data-shift="Chiều" data-day="CN"></td>
             </tr>
             <tr>
-              <td class="schedule__shift" data-shift="Evening(5pm-10pm)">Evening(5pm-10pm)</td>
+              <td class="schedule__shift">Evening</td>
               <td data-shift="Tối" data-day="T2"></td>
               <td data-shift="Tối" data-day="T3"></td>
               <td data-shift="Tối" data-day="T4"></td>
@@ -335,7 +317,7 @@
        ═══════════════════════════════════════════════ -->
   <div class="toast" id="toast" role="alert" aria-live="polite">
     <span class="toast__icon">✓</span>
-    <span class="toast__message" id="toastMessage"></span>
+    <span class="toast__message" id="toastMessage">Copied!</span>
   </div>
 
   <!-- ═══════════════════════════════════════════════
